@@ -24,45 +24,21 @@ window.onload = function() {
 
   function generateDomain(pronouns, adjs, nouns, domains) {
     let generatedDomains = [];
-    for (
-      let i = Math.floor(Math.random() * pronouns.length);
-      i < pronouns.length;
-      i++
-    ) {
-      for (
-        let j = Math.floor(Math.random() * adjs.length);
-        j < adjs.length;
-        j++
-      ) {
-        for (
-          let x = Math.floor(Math.random() * nouns.length);
-          x < nouns.length;
-          x++
-        ) {
-          for (
-            let y = Math.floor(Math.random() * domains.length);
-            y < domains.length;
-            y++
-          ) {
-            generatedDomains.push(
-              `${pronouns[i]}${adjs[j]}${nouns[x]}${domains[y]}`
-            );
+    for (let i = Math.floor(Math.random() * pronouns.length); i < pronouns.length;i++) {
+      for (let j = Math.floor(Math.random() * adjs.length); j < adjs.length; j++) {
+        for (let x = Math.floor(Math.random() * nouns.length); x < nouns.length; x++) {
+          for (let y = Math.floor(Math.random() * domains.length); y < domains.length; y++) {
+            generatedDomains.push(`${pronouns[i]}${adjs[j]}${nouns[x]}${domains[y]}`);
           }
         }
       }
     }
-    return generatedDomains[
-      Math.floor(Math.random() * generatedDomains.length)
-    ];
+
+    return generatedDomains[Math.floor(Math.random() * generatedDomains.length)];
   }
 
   document.getElementById("btn").onclick = function() {
-    document.getElementById("domain").innerHTML = generateDomain(
-      pronouns,
-      adjs,
-      nouns,
-      domains
-    );
+    document.getElementById("domain").innerHTML = generateDomain(pronouns, adjs, nouns, domains);
   };
 
   console.log("Hello Domain Generator from the console!");
